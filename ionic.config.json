@@ -1,0 +1,8 @@
+{
+  "name": "studentPlanner",
+  "app_id": "a6955b38",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
