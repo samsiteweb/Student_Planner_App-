@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{channel.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list *ngFor="let message of channelMessage | async">
+     <ion-card (click)="selectChannel(message)">
+      <ion-item>  
+      <ion-avatar item-start>
+            <img src="img/avatar.png">
+          </ion-avatar>
+          <ion-card-title>
+              {{message.messageTitle}}
+            </ion-card-title>
+          {{message.messageContent}}
+        </ion-item>
+     </ion-card>
+          
+      
+  </ion-list>
+</ion-content>
+

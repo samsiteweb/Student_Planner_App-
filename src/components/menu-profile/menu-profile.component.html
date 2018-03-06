@@ -1,0 +1,8 @@
+<div *ngIf="getProfile">  
+<div class="profile-view__image-container" style="color: rgb(255, 255, 255) ">
+    <!-- <h2>Welcome</h2> -->
+ <p style="margin-top: -3%"> {{getProfile.firstName}} {{getProfile.lastName}} <br> Matric No: {{getProfile.matricNumber}} 
+  <br> {{"("+getProfile.level+ " Level"+")"}}
+</p>
+</div>
+</div>

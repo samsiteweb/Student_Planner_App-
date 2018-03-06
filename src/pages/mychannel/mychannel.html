@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle icon-only >
+      <ion-icon name='menu' ></ion-icon>
+    </button>
+    <ion-title>
+      My Channel
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showAddChannel()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-list>
+    <ion-item-sliding *ngFor="let channel of channelList | async">
+      <ion-item >
+        <h2>{{channel.name}}</h2>
+      <ion-avatar item-start>
+          <img src="img/avatar2.png">
+        </ion-avatar>
+      </ion-item>
+      <ion-item-options side="left">
+          <button ion-button color="primary" (click)="selectChannel(channel)">
+              <ion-icon name="paper"></ion-icon>
+              Write
+            </button>
+            <button ion-button color="secondary" (click)="pushPage(channel)">
+                <ion-icon name="text"></ion-icon>
+                View
+              </button>
+        </ion-item-options>
+      <ion-item-options side="right">
+          <button ion-button color="secondary" (click)="editChannel(channel)">
+              <ion-icon name="create"></ion-icon>
+              Edit
+            </button>
+
+        <button ion-button color="danger" (click)="trashChannel(channel)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+      
+    </ion-item-sliding>
+  </ion-list>
+
+
+
+
+</ion-content>

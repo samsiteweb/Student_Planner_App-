@@ -1,0 +1,190 @@
+<ion-header no-border>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle icon-only start >
+      <ion-icon name='menu'></ion-icon>
+    </button>
+
+    <ion-title>
+      My Time Table
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content  >
+
+    <ion-segment  class="SwipedTabs-tabs"  >
+      <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
+      [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }' >
+        {{tab}}
+      </ion-segment-button>
+    </ion-segment>
+  
+    <!-- here is our dynamic line  "indicator"-->
+    <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.%': (100/this.tabs.length)}"></div>
+  
+    <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
+                (ionSlideWillChange)="updateIndicatorPosition()"
+                (ionSlideDidChange)="updateIndicatorPosition()"
+                (pan)="updateIndicatorPosition()"
+                [pager]="false"
+          >
+            <ion-slide>
+        <ion-list style="margin: -3%">
+  <ion-item >
+    <ion-row style="background-color:rgb(252, 239, 239); text-align: center ">
+      <ion-col col-3 style="background-color: #f1f5d9" >
+        TIME
+      </ion-col>
+      <ion-col col-9 style="background-color: #eff6fcd0">
+        COURSES
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-inline-start-color:black" *ngFor="let item of MontimetableRef | async" >
+      <ion-col col-3 style="background-color: #f1f5d9" text-wrap>
+          <h2>{{item.startTime}} - {{item.endTime}} </h2>
+      </ion-col >
+      <ion-col col-9 style="background-color: #eff6fcd0">
+        <ion-row>
+        <ion-col col-12 text-wrap>
+            <h3>{{item.courseList}}</h3>
+        </ion-col>
+        </ion-row>
+        </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-list  >
+      </ion-slide>
+      <ion-slide>
+          <ion-list style="margin: -3%">
+              <ion-item>
+                <ion-row style="background-color:rgb(252, 239, 239); text-align: center ">
+                  <ion-col col-3 style="background-color: #f5d9e7" >
+                    TIME
+                  </ion-col>
+                  <ion-col col-9 style="background-color: #eff6fcd0">
+                    COURSES
+                  </ion-col>
+                </ion-row>
+                <ion-row style="border-inline-start-color:black" *ngFor="let item of TuetimetableRef | async" >
+                  <ion-col col-3 style="background-color: #f5d9e7" text-wrap>
+                      <h2>{{item.startTime}} - {{item.endTime}} </h2>
+                  </ion-col >
+                  <ion-col col-9 style="background-color: #eff6fcd0">
+                    <ion-row>
+                    <ion-col col-12 text-wrap>
+                        <h3>{{item.courseList}}</h3>
+                    </ion-col>
+                    </ion-row>
+                    </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>      
+          </ion-slide>
+      <ion-slide>
+          <ion-list style="margin: -3%">
+              <ion-item>
+                <ion-row style="background-color:rgb(252, 239, 239); text-align: center ">
+                  <ion-col col-3 style="background-color: #f0d9f5" >
+                    TIME
+                  </ion-col>
+                  <ion-col col-9 style="background-color: #eff6fcd0">
+                    COURSES
+                  </ion-col>
+                </ion-row>
+                <ion-row style="border-inline-start-color:black" *ngFor="let item of WedtimetableRef | async" >
+                  <ion-col col-3 style="background-color: #f0d9f5" text-wrap>
+                      <h2>{{item.startTime}} - {{item.endTime}} </h2>
+                  </ion-col >
+                  <ion-col col-9 style="background-color: #eff6fcd0">
+                    <ion-row>
+                    <ion-col col-12 text-wrap>
+                        <h3>{{item.courseList}}</h3>
+                    </ion-col>
+                    
+                    </ion-row>
+                    </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+      </ion-slide>
+      <ion-slide>
+          <ion-list style="margin: -3%">
+            <ion-item>
+              <ion-row style="background-color:rgb(252, 239, 239); text-align: center ">
+                <ion-col col-3 style="background-color: #d9f5d9" >
+                  TIME
+                </ion-col>
+                <ion-col col-9 style="background-color: #eff6fcd0">
+                  COURSES
+                </ion-col>
+              </ion-row>
+              <ion-row style="border-inline-start-color:black" *ngFor="let item of ThurtimetableRef | async" >
+                <ion-col col-3 style="background-color: #d9f5d9" text-wrap>
+                    <h2>{{item.startTime}} - {{item.endTime}} </h2>
+                </ion-col >
+                <ion-col col-9 style="background-color: #eff6fcd0">
+                  <ion-row>
+                  <ion-col col-12 text-wrap>
+                      <h3>{{item.courseList}}</h3>
+                  </ion-col>
+                  </ion-row>
+                  </ion-col>
+              </ion-row>
+            </ion-item>
+            </ion-list>
+      </ion-slide>
+      <ion-slide>
+          <ion-list style="margin: -3%">
+            <ion-item>
+              <ion-row style="background-color:rgb(252, 239, 239); text-align: center ">
+                <ion-col col-3 style="background-color: #ebebeb" >
+                  TIME
+                </ion-col>
+                <ion-col col-9 style="background-color: #eff6fcd0">
+                  COURSES
+                </ion-col>
+              </ion-row>
+              <ion-row style="border-inline-start-color:black" *ngFor="let item of FritimetableRef | async" >
+                <ion-col col-3 style="background-color: #ebebeb" text-wrap>
+                    <h2>{{item.startTime}} - {{item.endTime}} </h2>
+                </ion-col >
+                <ion-col col-9 style="background-color: #eff6fcd0">
+                  <ion-row>
+                  <ion-col col-12 text-wrap>
+                      <h3>{{item.courseList}}</h3>
+                  </ion-col>
+                  </ion-row>
+                  </ion-col>
+              </ion-row>
+            </ion-item>
+            </ion-list>
+        </ion-slide>
+        <ion-slide>
+            <ion-list style="margin: -3%">
+              <ion-item>
+                <ion-row style="background-color:rgb(252, 239, 239); text-align: center ">
+                  <ion-col col-3 style="background-color: #d9ecf5" >
+                    TIME
+                  </ion-col>
+                  <ion-col col-9 style="background-color: #eff6fcd0">
+                    COURSES
+                  </ion-col>
+                </ion-row>
+                <ion-row style="border-inline-start-color:black" *ngFor="let item of SattimetableRef | async" >
+                  <ion-col col-3 style="background-color: #d9ecf5" text-wrap>
+                      <h2>{{item.startTime}} - {{item.endTime}} </h2>
+                  </ion-col >
+                  <ion-col col-9 style="background-color: #eff6fcd0">
+                    <ion-row>
+                    <ion-col col-12 text-wrap>
+                        <h3>{{item.courseList}}</h3>
+                    </ion-col>
+                    </ion-row>
+                    </ion-col>
+                </ion-row>
+              </ion-item>
+              </ion-list>
+          </ion-slide>
+    </ion-slides>
+  
+  
+  </ion-content>

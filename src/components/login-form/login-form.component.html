@@ -1,0 +1,43 @@
+<form #loginForm="ngForm" novalidate> 
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+      <ion-item>
+          <ion-label color="primary" floating>Email Address</ion-label>
+          <ion-input [(ngModel)]= "account.email" [ngModelOptions]="{standalone: true}" type= "email" 
+          name="email" #email="ngModel"
+           required 
+           pattern="(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$"></ion-input>
+      </ion-item>
+
+      <div padding *ngIf="email.invalid && email.dirty">
+        <!-- <span class="global__input-error">Email address is not valid</span> -->
+      </div>
+
+        <ion-item>
+          <ion-label color="primary" floating>Password</ion-label>
+          <ion-input [(ngModel)]="account.password" 
+          [ngModelOptions]="{standalone: true}" 
+          type= "password" name="password" #password="ngModel"
+          required 
+          pattern="[a-zA-Z0-9!@#$%^&*]{6,20}$"></ion-input>
+        </ion-item>
+
+        <div padding *ngIf="password.invalid && password.dirty">
+          <span class="global__input-error">Password is not valid</span>
+        </div>
+
+        <ion-item>
+          <p> Forgot Password ? <a> Get Your password </a></p>
+        </ion-item>
+        <button ion-button block color="secondary" (click)="login()" [disabled]="loginForm.invalid" >Login</button>
+        <ion-item>
+          <p style="text-align: center">You don't have an account Yet?</p>
+        </ion-item>
+        <div style="text-align: center">
+        <button  ion-button color="primary" (click)="navigateToPage('RegisterPage')" >Register</button>
+      </div>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</form>

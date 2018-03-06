@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title >Inbox</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item no-lines *ngFor="let message of messageList">
+      <ion-avatar item-left>
+        <img [src]="message.User.avatar" alt="Avatar">
+      </ion-avatar>
+      <h2>{{message.User.firstName}} {{message.User.lastName}}</h2>
+      <p>{{message.lastMessage}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

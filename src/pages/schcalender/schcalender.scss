@@ -1,0 +1,33 @@
+page-schcalender {
+
+
+    .SwipedTabs-indicatorSegment
+    {
+        -webkit-transition: 0.3s all;
+        -moz-transition:  0.3s all;
+        -o-transition:  0.3s all;
+        transition:  0.3s all;
+        transform-origin: top 0 left 0;
+        height: 1px;
+	    position: relative;
+	    top: 0px;
+	    background-color: rgb(194, 47, 28) !important;
+    }
+    .SwipedTabs-tabs ion-segment-button
+    {
+    	border:none !important;
+    	color:white!important;
+    	background-color:#1265f5!important;
+    }
+     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
+    {
+        color:white !important;
+    }
+    .SwipedTabs-tabs
+    {
+    	border-bottom: solid 0px #5271f8  !important;
+    }
+
+
+
+   }

@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Channel</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label stacked>Edit Channel Name</ion-label>
+        <ion-input type="text" [(ngModel)]="getchannel.name"></ion-input>
+  </ion-item>
+  <button ion-button (click)="editChannel(getchannel)" color="ButtonColor" round>Save</button>
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-slides  (ionSlideDidChange)="slideChanged()" >  
+    
+    <ion-slide [ngStyle]="{ 
+      'background-color': 'rgb(223, 237, 245)',
+      'background-repeat': 'no-repeat'}">
+         <img src= {{frontslide}}>
+          <h1 style= "font-family: cinzel; color: rgb(8, 152, 236)"> Student Planner</h1>  
+          <h3 style="color: rgb(8, 152, 236)">Mobile App</h3>
+  </ion-slide>
+
+  </ion-slides >
+  <ion-footer no-border align ='center'>
+      <button ion-button clear color ="secondary" (click)="pushLogin()">LET'S START</button>
+  </ion-footer>

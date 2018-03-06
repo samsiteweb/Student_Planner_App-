@@ -1,0 +1,38 @@
+
+<ion-slides  (ionSlideDidChange)="slideChanged()" >  
+  <ion-slide [ngStyle]="{ 
+                         'background-color': slide.bgcolor,
+                         'background-repeat': 'no-repeat'}"
+   *ngFor="let slide of slideContent" >
+   <ion-header no-border>
+        
+  </ion-header>
+   <img src= {{slide.img}}>
+   <h3 [innerHTML]="slide.title" [ngStyle]="{'color': slide.contentcolor}"></h3>
+    <h5 [innerHTML]="slide.Description" [ngStyle]="{'color': slide.contentcolor}"></h5>
+    
+</ion-slide>
+  <ion-slide style="background-color:rgb(255, 255, 255)">
+<button ion-button outline color ="secondary" (click)="pushLogin()">LOGIN</button> <br>
+<button ion-button outline color ="secondary" (click)="pushReg()">REGISTER</button>
+
+</ion-slide>
+
+</ion-slides>
+<ion-footer align="center" no-border>
+  
+    <button ion-button icon-only clear round color = "Primary" (click)="rewindAction()">
+        <ion-icon style="color:rgb(172, 206, 236); font-size:2em" name="md-rewind"></ion-icon>
+    </button>  
+      <button ion-button icon-only clear round color color = "Primary" (click)= "clickAction()">
+            <ion-icon style="color:rgb(172, 206, 236); font-size:2em" name="md-arrow-dropright"></ion-icon>
+        </button>
+        <button ion-button icon-only clear round color = "Primary" (click)="skipAction()">
+            <ion-icon style="color:rgb(172, 206, 236); font-size:2em" name="md-fastforward"></ion-icon>
+        </button>
+        
+   
+  </ion-footer>
+
+
+

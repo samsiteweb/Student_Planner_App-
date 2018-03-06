@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle icon-only >
+      <ion-icon name='menu' ></ion-icon>
+    </button>
+    <ion-title>
+      My Channel
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-list>
+  <ion-item *ngFor="let channel of channelList | async" (click)="selectChannel(channel)" >
+    {{channel.name}}
+    <ion-avatar item-start>
+        <img src="img/avatar2.png">
+      </ion-avatar>
+  </ion-item>
+</ion-list>
+
+</ion-content>

@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar color= "primary">
+    <ion-title>Note</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item>
+        <ion-label color="primary" stacked>Note Title</ion-label>
+        <ion-input type="text" placeholder="Enter Title"  ></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+      <ion-label color="primary">Write Note</ion-label>
+      </ion-item >
+      <ion-item no-lines style="margin-top: -10px;">
+      <textarea  class='myInput' rows="11.5" maxLength="500" (keyup)="resize()" ></textarea>
+    </ion-item>
+    </ion-content>
+    <ion-footer >
+     <ion-toolbar  style="text-align:center">
+       <ion-row>
+         <ion-col>
+          <button ion-button clear > SAVE NOTE </button>
+            </ion-col>
+            
+        </ion-row>
+        </ion-toolbar>
+    </ion-footer>
+

@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title >EditTimeTable</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-row >
+     
+  <ion-item>
+        <ion-label floating>Start-Time</ion-label>
+        <ion-input type="text" [(ngModel)]="timeTable.startTime"></ion-input>
+  </ion-item>
+      <ion-item>
+          <ion-label floating>End-Time</ion-label>
+          <ion-input type="text" [(ngModel)]="timeTable.endTime"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Enter the Courses </ion-label>
+          <ion-input type="text" [(ngModel)]="timeTable.courseList"></ion-input>
+      </ion-item>
+      <button ion-button (click)="editTimeTable(timeTable)" color="ButtonColor" round>Save</button>
+    
+    </ion-row>
+      
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-menu [content]="content" >
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Welcome</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content > 
+  <div style="margin-top: 20px">
+<app-menu-profile></app-menu-profile> </div>
+  <ion-list >
+    <button ion-item menuClose *ngFor = "let page of pages " (click) = "gotoPage(page)">
+      <ion-icon item-start [name]="page.icon" [color]="isActive(page)"></ion-icon>
+      {{page.title}}
+    </button>
+  </ion-list>
+<p style="text-align: center; color:rgb(218, 222, 224)">Are you an Admin?</p>
+  <ion-list style="padding:0%">
+    <ion-item>
+      <ion-label stacked>Admin Username</ion-label>
+      <ion-input type="text" [(ngModel)]="adminUser" ></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Admin Password</ion-label>
+      <ion-input type="password" [(ngModel)]="adminPass"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div style="text-align: center; margin-top:-4%" >
+  <button ion-button small (click)="loginAdmin()" >ADMIN LOGIN</button>
+  </div>
+</ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+

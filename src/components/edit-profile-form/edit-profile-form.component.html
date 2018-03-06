@@ -1,0 +1,33 @@
+
+        <ion-list>
+    <ion-item>
+      <ion-label class="label" stacked>First Name</ion-label>
+      <ion-input type="text" placeholder="Enter First Name" [(ngModel)]= "profile.firstName" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Last Name</ion-label>
+      <ion-input type="text" placeholder="Enter Last Name" [(ngModel)]= "profile.lastName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Date of Birth</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" placeholder="31/12/1994" [(ngModel)]= "profile.dateOfBirth"></ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label stacked>Department</ion-label>
+      <ion-input  type="text" placeholder="Enter Dept." [(ngModel)]= "profile.department"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Matric Number</ion-label>
+      <ion-input type="number" placeholder="Enter Matric No:" [(ngModel)]= "profile.matricNumber"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked >Level</ion-label>
+      <ion-input type="number" placeholder="100" max="700" min="100" step="100" [(ngModel)]= "profile.level"></ion-input>
+    </ion-item>
+    </ion-list>
+
+
+<button ion-button (click)= "saveProfile()" >Save</button>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle icon-only >
+      <ion-icon name='menu' ></ion-icon>
+    </button>
+    <ion-title>
+      School Calender
+    </ion-title>
+  </ion-navbar>
+  <ion-segment  class="SwipedTabs-tabs"  >
+      <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
+      [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }' >
+        {{tab}}
+      </ion-segment-button>
+    </ion-segment>
+  
+    <!-- here is our dynamic line  "indicator"-->
+    <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.%': (100/this.tabs.length)}"></div>
+  
+    <ion-row style="background-color:#1265f5; text-align: center ">
+        <ion-col col-5 style="color: white">
+          Date
+        </ion-col>
+        <ion-col col-7 style="color: white">
+          Details
+        </ion-col>
+      </ion-row>
+</ion-header>
+
+<ion-content >
+    <div >
+      <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
+                  (ionSlideWillChange)="updateIndicatorPosition()"
+                  (ionSlideDidChange)="updateIndicatorPosition()"
+                  (pan)="updateIndicatorPosition()"
+                  [pager]="false"
+            >
+        <ion-slide style="font-size: 100%">
+            
+              <ion-row style="border-inline-start-color:black" *ngFor="let item of calendar" >
+                <ion-col col-5 style="background-color: #f1f5d9" text-wrap>
+                    {{item.startDate}} - <br> {{item.endDate}}
+                    <hr>
+                </ion-col >
+               
+                <ion-col col-7 style="background-color: #eff6fcd0">
+                  <ion-row>
+                  <ion-col col-12 text-wrap style="text-align: left">
+                      {{item.details}}
+                  </ion-col>
+                  </ion-row>
+                  </ion-col>
+              </ion-row>
+        </ion-slide>
+        <ion-slide style="font-size: 100%">
+              <ion-row style="border-inline-start-color:black" *ngFor="let item of calendar2" >
+                <ion-col col-5 style="background-color: #d9dcf5" text-wrap>
+                    {{item.startDate}} to {{item.endDate}}
+                    <hr>
+                </ion-col >
+               
+                <ion-col col-7 style="background-color: #eff6fcd0">
+                  <ion-row>
+                  <ion-col col-12 text-wrap style="margin-top: -5%">
+                      {{item.details}}
+                  </ion-col>
+                  </ion-row>
+                  </ion-col>
+              </ion-row>
+        </ion-slide>
+      </ion-slides>
+    </div>
+</ion-content>

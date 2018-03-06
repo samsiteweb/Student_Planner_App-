@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+     Add Timetable
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding style="text-align: center">
+    <ion-item>
+        <ion-label>Select Day</ion-label>
+        <ion-select [(ngModel)]="day">
+          <ion-option>Monday</ion-option>
+          <ion-option>Tuesday</ion-option>
+          <ion-option>Wednesday</ion-option>
+          <ion-option>Thursday</ion-option>
+          <ion-option>Friday</ion-option>
+          <ion-option>Saturday</ion-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+        <ion-label floating>Start-Time</ion-label>
+        <ion-datetime displayFormat="hh:mm A" [(ngModel)]="timeTable.startTime"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>End-Time</ion-label>
+          <ion-datetime displayFormat="hh:mm A" [(ngModel)]="timeTable.endTime"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Enter the Courses </ion-label>
+          <ion-input type="text" [(ngModel)]="timeTable.courseList"></ion-input>
+      </ion-item>
+    <br>
+      <button ion-button (click)="addTimeTable(timeTable)" color="ButtonColor">Save</button>
+    
+</ion-content>

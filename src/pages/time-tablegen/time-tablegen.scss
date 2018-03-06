@@ -1,0 +1,41 @@
+page-time-tablegen {
+
+    .SwipedTabs-indicatorSegment
+    {  
+        -webkit-transition: 0.3s all;
+        -moz-transition:  0.3s all;
+        -o-transition:  0.3s all;
+        transition:  0.3s all;
+        transform-origin: top 0 left 0;
+        height: 1px;
+	    position: relative;
+        top: -5px;
+        border-bottom: solid 5px rgb(8, 12, 143) !important;
+    }
+    .SwipedTabs-tabs ion-segment-button
+    {
+    	border:none !important;
+    	color:rgb(255, 255, 255)!important;
+    	background-color:#1265f5!important;
+    }
+     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
+    {
+        color:rgb(231, 235, 18) !important;
+    }
+    .SwipedTabs-tabs
+    {
+        border-bottom: solid 5px #e6e6e6  !important;
+        
+    }
+
+    .slide-zoom {
+    height: 100%;
+   
+}
+.slide{
+    margin: 0%;
+    padding: 0%;
+
+}
+
+}
